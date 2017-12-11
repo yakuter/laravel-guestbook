@@ -19,7 +19,6 @@ class GuestbookController extends Controller
         return view('new');
     }
     
-    
     public function store(Request $request)
     {
         $input = $request->all();
@@ -81,6 +80,5 @@ class GuestbookController extends Controller
         $request->session()->flash('alert-success', 'Message deleted successfully!');
         return redirect('/guestbook');
     }
-
 
 }
