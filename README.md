@@ -6,10 +6,10 @@
 <h3>How to use</h3>
 <ul>
 <li>Clone the repository with <strong>git clone</strong>.</li>
-<li>Create a database and execute <strong>laravel-guestbook.sql</strong> file in package.</li>
 <li>Copy <strong>.env.example</strong> file to <strong>.env</strong> and edit <strong>database</strong> section there</li>
 <li>Run <strong>composer install</strong></li>
 <li>Run <strong>php artisan key:generate</strong></li>
+<li>Create a database and run <strong>php artisan migrate</strong> to create database</li>
 <li>That's it - load the homepage</li>
 </ul>
 
