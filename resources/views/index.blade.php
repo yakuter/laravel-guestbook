@@ -70,8 +70,8 @@
                                         <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
                                     @endif
                                 @endforeach
-                            </div> 
-                            
+                            </div>
+
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -83,21 +83,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php $count=1; @endphp
-                                    @foreach ($messages as $message)
-                                    <tr>
-                                        <td>{{ $count }}</td>
-                                        <td>{{ $message->name }}</td>
-                                        <td>{{ $message->message }}</td>
-                                        <td>{{ $message->created_at }}</td>
-                                        <td>
-                                            <a href="{{ url('/guestbook/'.$message->id.'/edit') }}">Edit</a> | 
-                                            <a href="{{ url('/guestbook/'.$message->id) }}">Show</a> | 
-                                            <a href="{{ url('/guestbook/'.$message->id.'/delete') }}">Delete</a>
-                                        </td>
-                                    </tr>
-                                    @php $count++; @endphp
-                                    @endforeach
+                                    @if (!$messages->isEmpty())
+                                        @php $count=1; @endphp
+                                        @foreach ($messages as $message)
+                                        <tr>
+                                            <td>{{ $count }}</td>
+                                            <td>{{ $message->name }}</td>
+                                            <td>{{ $message->message }}</td>
+                                            <td>{{ $message->created_at }}</td>
+                                            <td>
+                                                <a href="{{ url('/guestbook/'.$message->id.'/edit') }}">Edit</a> |
+                                                <a href="{{ url('/guestbook/'.$message->id) }}">Show</a> |
+                                                <a href="{{ url('/guestbook/'.$message->id.'/delete') }}">Delete</a>
+                                            </td>
+                                        </tr>
+                                        @php $count++; @endphp
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="4">No Message</td>
+                                        </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>

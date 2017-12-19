@@ -11,5 +11,10 @@
 |
 */
 
+
+Route::get('/', function () {
+    return redirect('/guestbook');
+
+});
 Route::resource('/guestbook', 'GuestbookController');
 Route::get('/guestbook/{id}/delete', ['as' => 'guestbook.delete', 'uses' => 'GuestbookController@destroy']);
